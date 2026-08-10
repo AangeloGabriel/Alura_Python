@@ -7,5 +7,7 @@ class Carro(Veiculo):
         self.portas = portas
 
     def __str__(self):
-        return f"Modelo do veiculo: {self.modelo} | Marca do veiculo: {self.marca} | Estado: {self.estado()} | Portas: {self.portas}"
-        
+        return f"Modelo do veiculo: {self.modelo} | Marca do veiculo: {self.marca} | Estado: {self.estado()} | Portas: {self.portas} | Buzina {self._buzina}"
+
+    def buzina(self):
+        self._buzina = True

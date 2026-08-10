@@ -7,4 +7,7 @@ class Moto(Veiculo):
         self.tipo = tipo
 
     def __str__(self):
-        return f"Modelo do veiculo: {self.modelo} | Marca do veiculo: {self.marca} | Tipo do veiculo: {self.tipo} | Estado: {self.estado()}"
+        return f"Modelo do veiculo: {self.modelo} | Marca do veiculo: {self.marca} | Tipo do veiculo: {self.tipo} | Estado: {self.estado()} | Buzina {self._buzina}"
+
+    def buzina(self):
+        self._buzina = True

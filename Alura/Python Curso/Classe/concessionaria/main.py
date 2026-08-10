@@ -4,10 +4,12 @@ from armazem.moto import Moto
 
 def main():
     carro = Carro('Sedan', 'Ferrari', 4)
+    print(carro)
+    carro.buzina()
+    print(carro)
 
     moto = Moto('Motocicleta', 'Harley', 'Custom')
 
-    print(carro)
     print(moto)
 
 if __name__ == '__main__':
