@@ -3,6 +3,11 @@ import requests
 
 app = FastAPI()
 
+"""
+Para iniciar uma API colcoar no terminal de comandos
+uvicorn main:app
+"""
+
 @app.get('/api/hello')
 def hello_world():
     """
@@ -12,6 +17,8 @@ def hello_world():
 
 @app.get('/api/restaurantes/')
 def get_restaurantes(restaurante: str = Query(None)):
+    # Para acessar o restaurante em especifico colocar /api/restaurantes/?restaurante=RESTAURANTE
+    
     url ='https://guilhermeonrails.github.io/api-restaurantes/restaurantes.json'
 
     response = requests.get(url)
@@ -21,7 +28,7 @@ def get_restaurantes(restaurante: str = Query(None)):
         
         if restaurante is None:
             return {'Dados': dados_json}
-        
+
         dados_restaurante = []
         for item in dados_json:
             if item['Company'] == restaurante:
@@ -30,9 +37,7 @@ def get_restaurantes(restaurante: str = Query(None)):
                     "item":         item['Item'],
                     "preco":        item['price'],
                     "description":  item['description']
-
                 })
-                
-        return {'Resstaurante': restaurante, 'Cardapio': dados_restaurante}
+        return {'Restaurante': restaurante, 'Cardapio': dados_restaurante}
     else:
         return {'Erro': f'{response.status_code} - {response.text}'}
